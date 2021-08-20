@@ -32,27 +32,38 @@ function generatePassword(pwdLength, useUppercase, useLowercase, useNumbers, use
 // Write password to the #password input
 function writePassword() {
   // Ask user for the length of password
-  var promptLength = window.prompt('What is a lenght of your password from 8 to 128 characters?')
+  var promptLength = parseInt(window.prompt('What is a length of your password from 8 to 128 characters?'), 10);
+
   // Conditional Recursive Function Call
-  if (promptLength === "" || promptLength === null || promptLength < 8 || promptLength > 128) {
+  if (isNaN(promptLength) || promptLength === "" || promptLength === null || promptLength < 8 || promptLength > 128) {
     window.alert("You need to provide a valid answer! Please try again.");
     return writePassword();
-}
-  // Ask user for the uppercase letters of password
-  var promptUpCase = window.confirm('Do you want uppercase letters?')
-  // Ask user for the lowercase letters of password
-  var promptLowCase = window.confirm('Do you want lowercase letters?')
-  // Ask user for the digits letters of password
-  var promptDigits = window.confirm('Do you want digits?')
-  // Ask user for the special symbols letters of password
-  var promptSpecails = window.confirm('Do you want special symbols?')
+  }
 
-  var password = generatePassword(promptLength, promptUpCase, promptLowCase, promptDigits, promptSpecails);
+  while (true) {
+    // Ask user for the uppercase letters of password
+    var promptUpCase = window.confirm('Do you want uppercase letters?');
+    // Ask user for the lowercase letters of password
+    var promptLowCase = window.confirm('Do you want lowercase letters?');
+    // Ask user for the digits letters of password
+    var promptDigits = window.confirm('Do you want digits?');
+    // Ask user for the special symbols letters of password
+    var promptSpecials = window.confirm('Do you want special symbols?');
+    
+    // Check if any of criteria was chosen
+    if (promptUpCase === true || promptLowCase === true || promptDigits === true || promptSpecials === true) {
+      break;
+    }
+    else {
+      window.alert('You need to choose at least one character type');
+    }
+  }
+
+  var password = generatePassword(promptLength, promptUpCase, promptLowCase, promptDigits, promptSpecials);
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
+  
 }
-
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
