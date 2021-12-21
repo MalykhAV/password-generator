@@ -8,13 +8,36 @@
     <link rel="stylesheet" href="./assets/style.css" />
   </head>
   <body>
+    
     <div class="wrapper">
       <header>
         <h1>Password Generator</h1>
       </header>
+      
       <div class="card">
         <div class="card-header">
           <h2>Generate a Password</h2>
+        </div>
+        
+        <div class="parameters">
+          <form class="length">
+            <label for="length-select">Password length:</label>
+
+            <input type="number" id="input-length" name="boopity" min="8" max="128" placeholder="From 8 to 128" value="">
+              
+            <br><br>
+            <input type="checkbox" id="lowercase" name="lowercase" checked>
+            <label class="label-space" for="lowercase-letters">Lowercase letter</label>
+
+            <input type="checkbox" id="uppercase" name="uppercase">
+            <label class="label-space" for="uppercase-letters">Uppercase letter</label>
+
+            <input type="checkbox" id="digits" name="digits">
+            <label class="label-space" for="digits">Digits</label>
+
+            <input type="checkbox" id="symbols" name="symbols">
+            <label class="label-space" for="symbols">Special symbols</label>
+          </form>
         </div>
         <div class="card-body">
           <textarea
