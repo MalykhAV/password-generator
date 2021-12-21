@@ -5,7 +5,8 @@ This website is an application that generates a random password based on user-se
 ## Built With
 * HTML
 * CSS
-* JavaScpirt
+* JavaScript
+* DOM
 
 ## User Story
 
@@ -15,7 +16,7 @@ I WANT to randomly generate a password that meets certain criteria
 SO THAT I can create a strong password that provides greater security
 ```
 
-## Acceptance Criteria
+## Criteria
 
 ```
 GIVEN I need a new, secure password
@@ -34,10 +35,6 @@ THEN a password is generated that matches the selected criteria
 WHEN the password is generated
 THEN the password is either displayed in an alert or written to the page
 ```
-
-The following image demonstrates the application functionality:
-
-![password generator demo](./Assets/03-javascript-homework-demo.png)
 
 ## Website
 https://malykhav.github.io/password-generator/
